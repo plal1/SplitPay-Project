@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Groups"
+        android:id="@+id/textView2"
+        android:scrollbars="vertical"
+        android:textStyle="bold"
+        android:textColor="#ff1194ff"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group1"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group2"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group3"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp3" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group4"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp4" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group5"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp5" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group6"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp6" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group7"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp7" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group8"
+        android:onClick="memberDetails"
+        android:layout_marginTop="20dp"
+        android:textColor="#F000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:scrollbars="vertical"
+        android:id="@+id/gp8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:text="Create New Group"
+        android:onClick="create"
+        android:id="@+id/button"
+        android:textStyle="bold"
+        android:textColor="#ff1194ff"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+</LinearLayout>
