@@ -18,18 +18,114 @@ import java.util.Date;
 
 public class Registration extends ActionBarActivity {
 
-    String name;
-    String email;
-    int phone;
-    String uname;
-    String passwd;
-    String conpass;
-    String card;
-    String ctype;
-    String cname;
-    int cnum;
-    Date exp;
-    int cvv;
+    private String name;
+    private String email;
+    private int phone;
+    private String uname;
+    private String passwd;
+    private String conpass;
+    private String card;
+    private String ctype;
+    private String cname;
+    private int cnum;
+    private Date exp;
+    private int cvv;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getUname() {
+        return uname;
+    }
+
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public String getPasswd() {
+        return passwd;
+    }
+
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
+    }
+
+    public String getConpass() {
+        return conpass;
+    }
+
+    public void setConpass(String conpass) {
+        this.conpass = conpass;
+    }
+
+    public String getCard() {
+        return card;
+    }
+
+    public void setCard(String card) {
+        this.card = card;
+    }
+
+    public String getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(String ctype) {
+        this.ctype = ctype;
+    }
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    public int getCnum() {
+        return cnum;
+    }
+
+    public void setCnum(int cnum) {
+        this.cnum = cnum;
+    }
+
+    public Date getExp() {
+        return exp;
+    }
+
+    public void setExp(Date exp) {
+        this.exp = exp;
+    }
+
+    public int getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

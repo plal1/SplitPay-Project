@@ -1,9 +1,11 @@
 package com.cs442.project.splitpay;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -27,19 +29,19 @@ public class StoreDbHandler extends SQLiteOpenHelper {
 
     private static StoreDbHandler dbHandler = null;
 
-    public static StoreDbHandler getDbHandlerInstance(Context context, SQLiteDatabase.CursorFactory factory){
-        if(dbHandler == null){
+    public static StoreDbHandler getDbHandlerInstance(Context context, SQLiteDatabase.CursorFactory factory) {
+        if (dbHandler == null) {
             dbHandler = new StoreDbHandler(context, factory);
         }
         return dbHandler;
     }
 
     private StoreDbHandler(Context context, SQLiteDatabase.CursorFactory factory) {
-        super(context,DATABASE_NAME,factory,DATABASE_VERSION);
+        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db){
+    public void onCreate(SQLiteDatabase db) {
 
         String query = "CREATE TABLE " + TABLE_REGISTER + "(" +
                 COULUMN_FNAME + "TEXT not null," +
@@ -62,5 +64,70 @@ public class StoreDbHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    public boolean isUserAuthenticated(String userName, String password){
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<String> users = new ArrayList<String>();
+        boolean result = false;
 
+        if (db != null) {
+            String query = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_REGISTER + " WHERE " + COLUMN_USERNAME +
+                    " = " + userName + " and " + COLUMN_PASSWORD + " = " + password;
+            //cursor to point the current position of result
+            Cursor c = db.rawQuery(query, null);
+            c.moveToFirst();
+            while (!c.isAfterLast()) {
+                users.add(c.getString(c.getColumnIndex(COLUMN_USERNAME)));
+                c.moveToNext();
+            }
+            db.close();
+        }
+
+        if(users.size() == 1){
+            result = true;
+        }
+
+        return result;
+    }
+/*
+    public String getUserName(){
+        SQLiteDatabase db = getReadableDatabase();
+        String userName = null;
+
+        if (db != null) {
+            // String query = "SELECT COLUMN_USERNAME,COLUMN_PASSWORD FROM " + TABLE_REGISTER + "WHERE COLUMN_USERNAME = " + uName;
+            String query = "SELECT COLUMN_USERNAME FROM " + TABLE_REGISTER;
+            //cursor to point the current position of result
+            Cursor c = db.rawQuery(query, null);
+            c.moveToFirst();
+            while (!c.isAfterLast()) {
+                if (c.getString(c.getColumnIndex(COLUMN_USERNAME)) != null) {
+                    userName = c.getString(c.getColumnIndex(COLUMN_USERNAME));
+                }
+                c.moveToNext();
+            }
+            db.close();
+        }
+        return userName;
+    }
+
+    public String getPassword(String uName) {
+        SQLiteDatabase db = getReadableDatabase();
+        String password = null;
+
+        if (db != null) {
+            String query = "SELECT COLUMN_PASSWORD FROM " + TABLE_REGISTER + "WHERE COLUMN_USERNAME = " + uName;
+            //cursor to point the current position of result
+            Cursor c = db.rawQuery(query, null);
+            c.moveToFirst();
+            while (!c.isAfterLast()) {
+                if (c.getString(c.getColumnIndex(COLUMN_USERNAME)) != null) {
+                    password = c.getString(c.getColumnIndex(COLUMN_PASSWORD));
+                }
+                c.moveToNext();
+            }
+            db.close();
+        }
+        return password;
+    }
+    */
 }

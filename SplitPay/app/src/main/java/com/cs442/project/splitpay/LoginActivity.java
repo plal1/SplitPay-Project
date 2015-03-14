@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class LoginActivity extends Activity {
+    private StoreDbHandler dbhandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,18 @@ public class LoginActivity extends Activity {
 
     public void login(View view)
     {
-        Intent intent = new Intent(this,Groups_Reg.class);
-        startActivity(intent);
+        EditText username = (EditText)findViewById(R.id.uname);
+        EditText password = (EditText)findViewById(R.id.passwd);
+        dbhandler = StoreDbHandler.getDbHandlerInstance(getApplicationContext(),null);
+
+        String userName = username.getText().toString();
+        String pwd = password.getText().toString();
+        if(dbhandler.isUserAuthenticated(userName,pwd)){
+            Toast.makeText(this, "You have succesfully Loged in", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this,Groups_Reg.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "Please check your username and password", Toast.LENGTH_LONG).show();
+        }
     }
 }
